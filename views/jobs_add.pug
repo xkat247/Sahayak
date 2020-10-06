@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+			section.jumbotron
+				.container.bg-dark
+					br
+					.card(style='background-color:#429E9D;')
+						h5.card-header.info-color.white-text.text-center.py-4
+							strong Fill Job details
+					.card-body.px-lg-5.pt-0
+						form.text-center.p-4(style='color: #e3ff00;' method='POST' action='/jobs/add')
+							.form-group.mt-3
+								label.title Title
+								input.form-control#title(type='text' name='title')
+							br
+							.md-form
+								label.desc Description
+								input.form-control#desc(type='textarea' name='body')
+							br
+							.form-group
+								label.status Status
+								br
+								select(name='status')
+									option Local
+									option Global
+
+
+							button.btn.btn-primary.btn.mt-4 Create

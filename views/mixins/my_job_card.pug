@@ -1,0 +1,13 @@
+mixin thumbCard(job)
+  .col-md-4
+    .card.mb-4.shadow-sm
+      .card-body
+        .card-text Title: #{job.title}
+        .card-text Criteria: #{job.status}
+        .card-text Description: #{job.body}
+        .card-text.mb-4 #{job.city}
+        .d-flex.justify-content-between
+          button.btn.btn-sm.btn-outline-primary Applicants
+          form(action=`my_jobs/${job._id}?_method=DELETE` method='POST')
+            button.btn.btn-sm.btn-outline-danger(type='submit') delete
+          small.text-muted *

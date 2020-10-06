@@ -1,0 +1,13 @@
+extends layout.pug
+include mixins/my_job_card
+
+block content
+    .d-flex.justify-content-center.mt-3
+        h5 My jobs
+    .album.py-5
+      .container
+        .row
+          each job in jobs
+            +thumbCard(job)
+
+    script(src='js/delete.js')

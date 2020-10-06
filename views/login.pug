@@ -1,0 +1,10 @@
+extends login_layout.pug
+
+block content
+  .card.mx-auto.text-center(style="width: 18rem; margin-top:7em")
+    .card-body
+      h5.class-title Jobs Website
+      p.card-text Join our community with a click
+      a.oauth-container.btn.btn-primary(href="/auth/google")
+        i.fab.fa-google.mr2
+        |  Sign in with google
