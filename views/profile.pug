@@ -1,0 +1,22 @@
+extends layout.pug
+include mixins/applicants
+
+block content
+    .d-flex.justify-content-center.mt-3
+        h3 Profile
+    .container
+        p(style = 'text-align:center;')
+            img(src=image height='150px' width='150px')       
+        ul.info_list
+            li.navbar.navbar-light(style='background-color:#bce6eb;margin:5px;') #{user.name}
+        if phone
+            p Phone : #{phone}
+        else
+            b Phone no not entered
+            form(action='/profile' method='POST')
+                input(type='tel' name='phone')
+                hr
+                input.btn.btn-primary(type='submit') 
+            
+                
+

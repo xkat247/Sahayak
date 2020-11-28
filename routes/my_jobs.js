@@ -27,5 +27,35 @@ router.delete('/:id',ensureAuth, async (req,res) => {
   }
 })
 
+//@desc get applicants
+//@route get /my_jobs/:id
+router.get('/:id',ensureAuth,async (req,res) => {
+  try {
+    const job = await Job.findById(req.params.id, function (err, arr) {
+      if(err){
+        console.log(err)
+      }
+    }).populate('applicants');
+    app_list = []
+
+    job.applicants.forEach(async applicant => {
+      var {firstName,phone}  = applicant
+      var app = {
+        firstName,
+        phone
+      }
+      app_list.push(app)
+    });
+    res.render("applicants",{
+      app_list
+    })
+    
+  } catch (err) {
+    console.log(err)
+    res.render('error/404')
+  }
+})
+
+
 
 module.exports = router

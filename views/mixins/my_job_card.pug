@@ -7,7 +7,7 @@ mixin thumbCard(job)
         .card-text Description: #{job.body}
         .card-text.mb-4 #{job.city}
         .d-flex.justify-content-between
-          button.btn.btn-sm.btn-outline-primary Applicants
+          a.btn.btn-sm.btn-outline-primary(href= `my_jobs/${job._id}`) Applicants
           form(action=`my_jobs/${job._id}?_method=DELETE` method='POST')
             button.btn.btn-sm.btn-outline-danger(type='submit') delete
           small.text-muted *

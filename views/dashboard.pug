@@ -2,13 +2,10 @@ extends layout_main.pug
 include mixins/card
 
 block content
-
-  h1#foo.text-center WELCOME #{name}, You can search here
-  form(style='margin-left:25em;')
-    input.mr-3(type='text')
-    button.btn.btn-primary(type='submit') Search
-  .album.py-5
-    .container
-      .row
-        each job in jobs
-          +thumbCard(job)
+  h1#foo.text-center WELCOME #{name}, Tasks are listed below
+  .container(style='background-color:#086972')
+    .album.py-5
+      .container
+        .row
+          each job in jobs
+            +thumbCard(job)

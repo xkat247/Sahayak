@@ -42,7 +42,7 @@ app.set('view engine', 'pug')
 app.set('views', './views')
 
 
-//Cross origin req ie frontend to backend
+//Cross origin req ie frontend to backend if i make using vue js
 
 
 // sessions
@@ -67,6 +67,9 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/jobs', require('./routes/jobs'))
 app.use('/my_jobs',require('./routes/my_jobs'))
+app.use('/profile',require('./routes/profile'))
+
+
 
 const PORT = process.env.PORT || 5000
 

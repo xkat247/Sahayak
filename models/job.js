@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const  User = require('./User')
 
 const jobSchema = new mongoose.Schema({
   title:{
@@ -27,13 +28,11 @@ const jobSchema = new mongoose.Schema({
   user:{
     type:mongoose.Schema.Types.ObjectId ,
     ref:'User'
-  }}
-  ,
-  applicants:{
-    type:Array,
-    "default":[]
-
   }
+  ,
+  applicants:[{ type:mongoose.Schema.Types.ObjectId, ref:'User'}]
+}
+  ,
   {
     timestamps:true
   }

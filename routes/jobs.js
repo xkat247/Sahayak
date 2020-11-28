@@ -22,4 +22,45 @@ router.post('/add',ensureAuth,async (req,res) => {
   }
 })
 
+//@desc get to find specific job
+//@route GET /jobs/:id
+router.get('/:id',ensureAuth,async (req,res) => {
+  try {
+    id = req.params.id
+    var job_spec = await Job.findById(id)
+    var flag = false
+    if(job_spec.applicants.includes(req.user._id)){
+      flag =true
+    }
+    res.render('job_dist',{
+      job_spec,flag
+    })
+  } catch (err) {
+    console.log(err)
+    res.render('error/404')
+  }
+})
+
+//@desc post to apply for job specific job
+//@route POST /jobs/:id
+router.post('/:id',ensureAuth,async (req,res) => {
+  try {
+    var user = req.user._id
+    await Job.findOneAndUpdate(
+      { _id: req.params.id }, 
+      { $addToSet: { applicants: user } },
+     function (error, success) {
+           if (error) {
+               console.log(error);
+           } else {
+               console.log("Applied");
+           }
+       });
+    res.redirect('/')
+  } catch (err) {
+    console.log(err)
+    res.render('error/404')
+  }
+})
+
 module.exports = router

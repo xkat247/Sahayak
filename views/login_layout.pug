@@ -8,8 +8,19 @@ html
 
 
   body
-    main#main
-      block content
+  header
+    nav.navbar.navbar-dark.bg-dark.shadow-sm
+      .container.d-flex.justify-content-between
+        a.navbar-brand.d-flex.align-items-center(href='/')
+          //- Including the svg logo
+          img(src='logo.svg' height='40px' margin='auto')
+          strong TASK MIXER
+
+  main#main
+    block content
+  br
+  br
+  include includes/footer.pug
     script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
     script(src='https://getbootstrap.com/docs/4.4/dist/js/bootstrap.bundle.min.js')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")

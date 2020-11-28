@@ -1,0 +1,14 @@
+extends layout.pug
+include mixins/applicants
+
+block content
+    .d-flex.justify-content-center.mt-3
+        h5 Applicants
+    .container
+        ul.applicants_list
+            if app_list
+                each applicant in app_list
+                    +listItem(applicant)
+            else
+                h2 No applicants yet
+

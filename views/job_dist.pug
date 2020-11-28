@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+      .jumbotron
+        label Title:
+        h6 #{job_spec.title}
+        label Description:
+        p #{job_spec.body}
+        if !flag
+          form(method="POST")
+            button.btn.btn-primary(type='submit') Apply
+        else
+          button.btn.btn-success Applied
